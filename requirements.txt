@@ -1,0 +1,7 @@
+psutil
+pandas
+sqlalchemy
+tweepy
+mysqlclient
+jinja2
+google-genai
