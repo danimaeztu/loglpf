@@ -1,5 +1,4 @@
 psutil
-pandas
 sqlalchemy
 mysqlclient
 jinja2
