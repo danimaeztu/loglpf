@@ -1,9 +1,0 @@
-Este es un mensaje automatizado.
-La carga de trabajo del servidor es muy elevada:
-
-{{timestamp}}
----------------------------------
-    CPU: {{cpu_pct}}%
-    RAM: {{ram_pct}}%
-
-Esto no tiene por qué ser algo malo, pero si ocurre a menudo puede que el servidor se encuentre bajo un ataque malicioso. Es importante mantener la vigilancia
