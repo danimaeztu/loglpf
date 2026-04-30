@@ -1,0 +1,5 @@
+psutil
+sqlalchemy
+mysqlclient
+jinja2
+requests

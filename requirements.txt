@@ -1,4 +1,0 @@
-psutil
-sqlalchemy
-mysqlclient
-jinja2
