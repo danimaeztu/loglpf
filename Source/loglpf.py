@@ -2,7 +2,7 @@
 """
 @author: Daniel Maeztu
 http://danimaeztu.com
-version: 1.0
+version: 1.1
 """
 
 from datetime import datetime
@@ -11,7 +11,7 @@ from sqlalchemy import text
 import psutil
 from jinja2 import Template
 import requests
-import Source.config as cf
+import config as cf
 
 def logger():
     """Feed a log with system status and Dynu."""
@@ -22,10 +22,11 @@ def logger():
     except requests.RequestException:
         dynu = "Error_Timeout"
 
-    # Get system stats
+# Get system stats
     now = datetime.now()
     cpu_load = psutil.cpu_percent()
     ram_load = psutil.virtual_memory().percent
+    cpu_temp = psutil.sensors_temperatures().get('cpu_thermal', [None])[0].current
     
     # Load SQL template
     with open(f'{cf.templates_path}/log_insert.sql') as f:
@@ -35,6 +36,7 @@ def logger():
     sql = tm.render(timestamp=now.strftime('%d-%m-%Y %H:%M:%S'),
                     cpu_load=cpu_load,
                     ram_load=ram_load,
+                    cpu_temp=cpu_temp,
                     dynu=dynu)
                     
     connection.execute(text(sql))
